@@ -2,16 +2,21 @@ using UnityEngine;
 
 public class PlayerInputBinder : MonoBehaviour
 {
-    [SerializeField] Joystick joystick;
-    [SerializeField] CharacterMotor motor;
+    [SerializeField] private Joystick joystick;
+    [SerializeField] private CharacterMotor playerMotor;
 
-    void OnEnable()
+    private void OnEnable()
     {
-        joystick.OnInputVectorEvent += motor.SetInput;
+        joystick.OnInputVectorEvent += OnInput;
     }
 
-    void OnDisable()
+    private void OnDisable()
     {
-        joystick.OnInputVectorEvent -= motor.SetInput;
+        joystick.OnInputVectorEvent -= OnInput;
+    }
+
+    private void OnInput(Vector2 v)
+    {
+        playerMotor.SetInput(v);
     }
 }
