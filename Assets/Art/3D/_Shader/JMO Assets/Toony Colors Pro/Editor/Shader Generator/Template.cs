@@ -266,6 +266,7 @@ namespace ToonyColorsPro
 						{
 							string keyword = line.Substring(line.IndexOf("/// IF_KEYWORD ") + "/// IF_KEYWORD ".Length);
 							bool condition = config.HasKeyword(keyword) && !string.IsNullOrEmpty(config.GetKeyword(keyword));
+							Debug.Log("Check keyword '" + keyword + "' = " + condition);
 							stack.Add(condition);
 							done.Add(condition);
 							depth++;

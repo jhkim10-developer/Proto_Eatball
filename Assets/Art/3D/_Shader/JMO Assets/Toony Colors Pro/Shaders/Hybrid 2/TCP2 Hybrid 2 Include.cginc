@@ -561,7 +561,7 @@ struct Varyings_Meta
 	float2 uv    : TEXCOORD0;
 };
 
-#if USE_FORWARD_PLUS || USE_CLUSTER_LIGHT_LOOP
+#if USE_FORWARD_PLUS
 	// Fake InputData struct needed for Forward+ macro
 	struct InputDataForwardPlusDummy
 	{
@@ -765,11 +765,7 @@ half4 Fragment (
 	Varyings input
 	, half vFace : VFACE
 #ifdef _WRITE_RENDERING_LAYERS
-	#if UNITY_VERSION >= 60020000
-		, out uint outRenderingLayers : SV_Target1
-	#else
-		, out float4 outRenderingLayers : SV_Target1
-	#endif
+	, out float4 outRenderingLayers : SV_Target1
 #endif
 	) : SV_Target
 {
@@ -777,11 +773,7 @@ half4 Fragment (
 	UNITY_SETUP_STEREO_EYE_INDEX_POST_VERTEX(input);
 
 	#ifdef _WRITE_RENDERING_LAYERS
-		#if UNITY_VERSION >= 60020000
-			outRenderingLayers = 0;
-		#else
-			outRenderingLayers = float4(0, 0, 0, 0);
-		#endif
+		outRenderingLayers = float4(0, 0, 0, 0);
 	#endif
 
 	// LOD Crossfading
@@ -1315,15 +1307,11 @@ half4 Fragment (
 	#if defined(TCP2_HYBRID_URP) && defined(_ADDITIONAL_LIGHTS)
 		uint pixelLightCount = GetAdditionalLightsCount();
 		#if URP_VERSION >= 12
-			#if USE_FORWARD_PLUS || USE_CLUSTER_LIGHT_LOOP
+			#if USE_FORWARD_PLUS
 				// Additional directional lights in Forward+
 				for (uint lightIndex = 0; lightIndex < min(URP_FP_DIRECTIONAL_LIGHTS_COUNT, MAX_VISIBLE_LIGHTS); lightIndex++)
 				{
-					#if URP_VERSION >= 171
-						CLUSTER_LIGHT_LOOP_SUBTRACTIVE_LIGHT_CHECK
-					#else
-						FORWARD_PLUS_SUBTRACTIVE_LIGHT_CHECK
-					#endif
+					FORWARD_PLUS_SUBTRACTIVE_LIGHT_CHECK
 
 					Light light = GetAdditionalLight(lightIndex, positionWS, shadowMask);
 
@@ -1465,7 +1453,7 @@ half4 Fragment (
 
 		#if defined(TCP2_HYBRID_URP)
 			half3 reflectVector = reflect(-viewDirWS, normalWS);
-			#if USE_FORWARD_PLUS || USE_CLUSTER_LIGHT_LOOP
+			#if USE_FORWARD_PLUS
 				half3 indirectSpecular = GlossyEnvironmentReflection(reflectVector, positionWS, reflectionRoughness, occlusion, normalizedScreenSpaceUV);
 			#else
 				half3 indirectSpecular = GlossyEnvironmentReflection(reflectVector, reflectionRoughness, occlusion);
@@ -1542,11 +1530,7 @@ half4 Fragment (
 	#endif
 
 	#if defined(TCP2_HYBRID_URP) && URP_VERSION >= 14 && defined(_WRITE_RENDERING_LAYERS)
-		#if UNITY_VERSION >= 60020000
-			outRenderingLayers = EncodeMeshRenderingLayer();
-		#else
-			outRenderingLayers = float4(EncodeMeshRenderingLayer(GetMeshRenderingLayer()), 0, 0, 0);
-		#endif
+		outRenderingLayers = float4(EncodeMeshRenderingLayer(meshRenderingLayers), 0, 0, 0);
 	#endif
 
 	return half4(color, alpha);
@@ -1892,15 +1876,11 @@ float4 fragment_outline (Varyings_Outline input) : SV_Target
 			uint pixelLightCount = GetAdditionalLightsCount();
 
 			#if URP_VERSION >= 12
-				#if USE_FORWARD_PLUS || USE_CLUSTER_LIGHT_LOOP
+				#if USE_FORWARD_PLUS
 					// Additional directional lights in Forward+
 					for (uint lightIndex = 0; lightIndex < min(URP_FP_DIRECTIONAL_LIGHTS_COUNT, MAX_VISIBLE_LIGHTS); lightIndex++)
 					{
-						#if URP_VERSION >= 171
-							CLUSTER_LIGHT_LOOP_SUBTRACTIVE_LIGHT_CHECK
-						#else
-							FORWARD_PLUS_SUBTRACTIVE_LIGHT_CHECK
-						#endif
+						FORWARD_PLUS_SUBTRACTIVE_LIGHT_CHECK
 
 						Light light = GetAdditionalLight(lightIndex, positionWS, shadowMask);
 

@@ -560,22 +560,6 @@ namespace ToonyColorsPro
 				{
 					return MaterialDrawers + " ";
 				}
-
-				internal override string PrintVariableDeclare(string indent)
-				{
-					if (IsGlobalVariable)
-						return null;
-					return PrintVariableInternal(indent);
-				}
-
-				internal override string PrintVariableDeclareOutsideCBuffer(string indent)
-				{
-					if (!IsGlobalVariable)
-						return null;
-					return PrintVariableInternal(indent);
-				}
-
-				protected abstract string PrintVariableInternal(string indent);
 			}
 
 			[Serialization.SerializeAs("imp_mp_float")]
@@ -596,7 +580,7 @@ namespace ToonyColorsPro
 
 				internal override string PrintVariableFixedFunction() { return string.Format("[{0}]", PropertyName); }
 				internal override string PrintPropertyInternal(string indent) { return base.PrintPropertyInternal(indent) + string.Format(CultureInfo.InvariantCulture, "{0} (\"{1}\", Float) = {2}", PropertyName, Label, DefaultValue); }
-				protected override string PrintVariableInternal(string indent) { return string.Format("{0}float {1};", indent, PropertyName); }
+				internal override string PrintVariableDeclare(string indent) { return string.Format("{0}float {1};", indent, PropertyName); }
 				internal override string PrintVariableFragment(string inputSource, string outputSource, string arguments) { return FetchVariable(PropertyName, true); }
 
 				internal override void NewLineGUI(bool usedByCustomCode)
@@ -633,7 +617,7 @@ namespace ToonyColorsPro
 
 				internal override string PrintVariableFixedFunction() { return string.Format("[{0}]", PropertyName); }
 				internal override string PrintPropertyInternal(string indent) { return base.PrintPropertyInternal(indent) + string.Format(CultureInfo.InvariantCulture, "{0} (\"{1}\", Range({3},{4})) = {2}", PropertyName, Label, DefaultValue, Min, Max); }
-				protected override string PrintVariableInternal(string indent) { return string.Format("{0}float {1};", indent, PropertyName); }
+				internal override string PrintVariableDeclare(string indent) { return string.Format("{0}float {1};", indent, PropertyName); }
 				internal override string PrintVariableFragment(string inputSource, string outputSource, string arguments) { return FetchVariable(PropertyName, true); }
 
 				internal override void NewLineGUI(bool usedByCustomCode)
@@ -720,7 +704,7 @@ namespace ToonyColorsPro
 				}
 
 				internal override string PrintPropertyInternal(string indent) { return base.PrintPropertyInternal(indent) + string.Format(CultureInfo.InvariantCulture, "{0} (\"{1}\", Vector) = ({2},{3},{4},{5})", PropertyName, Label, DefaultValue.x, DefaultValue.y, DefaultValue.z, DefaultValue.w); }
-				protected override string PrintVariableInternal(string indent)
+				internal override string PrintVariableDeclare(string indent)
 				{
 					// Always declare a float4, even if all channels aren't necessarily used, as they could still be used for custom code
 					//var channels = ChannelsCount > 1 ? ChannelsCount.ToString() : "";
@@ -833,7 +817,7 @@ namespace ToonyColorsPro
 				}
 
 				internal override string PrintPropertyInternal(string indent) { return base.PrintPropertyInternal(indent) + string.Format(CultureInfo.InvariantCulture, "{7}{6}{0} (\"{1}\", Color) = ({2},{3},{4},{5})", PropertyName, Label, DefaultValue.r, DefaultValue.g, DefaultValue.b, DefaultValue.a, Hdr ? "[HDR] " : "", ChannelsCount < 4 ? "[TCP2ColorNoAlpha] " : ""); }
-				protected override string PrintVariableInternal(string indent)
+				internal override string PrintVariableDeclare(string indent)
 				{
 					// Always declare a float4, even if all channels aren't necessarily used, as they could still be used for custom code
 					//var channels = ChannelsCount > 1 ? ChannelsCount.ToString() : "";
@@ -1730,12 +1714,6 @@ namespace ToonyColorsPro
 					properties = properties.TrimEnd('\n');
 					return string.IsNullOrEmpty(properties) ? null : properties;
 				}
-
-				protected override string PrintVariableInternal(string indent)
-				{
-					return null;
-				}
-
 				internal override string PrintVariableFragment(string inputSource, string outputSource, string arguments)
 				{
 					var tilingOffsetVariable = UseCustomTilingOffsetVariable() ? TilingOffsetVariable : GetDefaultTilingOffsetVariable();

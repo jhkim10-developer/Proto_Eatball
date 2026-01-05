@@ -400,11 +400,7 @@ namespace ToonyColorsPro
 				MaterialProperty outlineProp = null;
 				for (int i = 0; i < properties.Length; i++)
 				{
-#if UNITY_6000_1_OR_NEWER
-					if (properties[i].propertyType == ShaderPropertyType.Float)
-#else
 					if (properties[i].type == MaterialProperty.PropType.Float)
-#endif
 					{
 						EditorGUIUtility.labelWidth = labelWidth - 50;
 					}
@@ -430,11 +426,7 @@ namespace ToonyColorsPro
 						}
 						else
 						{
-#if UNITY_6000_1_OR_NEWER
-							if ((properties[i].propertyFlags & ShaderPropertyFlags.HideInInspector) == 0)
-#else
-							if ((properties[i].flags & (MaterialProperty.PropFlags.PerRendererData | MaterialProperty.PropFlags.HideInInspector)) == MaterialProperty.PropFlags.None)
-#endif
+							if ((properties[i].flags & (MaterialProperty.PropFlags.HideInInspector | MaterialProperty.PropFlags.PerRendererData)) == MaterialProperty.PropFlags.None)
 							{
 								string displayName = splitLabels.ContainsKey(i) ? splitLabels[i][_isMobile ? 1 : 0] : properties[i].displayName;
 								DisplayProperty(properties[i], displayName, materialEditor);

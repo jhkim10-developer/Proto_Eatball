@@ -1522,16 +1522,6 @@ namespace ToonyColorsPro
 #if UNITY_2022_2_OR_NEWER
 				Utils.AddIfMissing(this.Features, "UNITY_2022_2");
 #endif
-#if UNITY_6000_0_OR_NEWER
-				Utils.AddIfMissing(this.Features, "UNITY_6000_2");
-#endif
-#if UNITY_6000_1_OR_NEWER
-				Utils.AddIfMissing(this.Features, "UNITY_6000_1");
-#endif
-#if UNITY_6000_2_OR_NEWER
-				Utils.AddIfMissing(this.Features, "UNITY_6000_0");
-#endif
-
 				var parsedLines = template.GetParsedLinesFromConditions(this, null, null);
 
 				//Clear arrays: will be refilled with the template's shader properties

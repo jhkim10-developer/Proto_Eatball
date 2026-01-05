@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using ToonyColorsPro.ShaderGenerator;
 using ToonyColorsPro.Utilities;
 using System.IO;
 using System.Globalization;
@@ -20,19 +22,9 @@ namespace ToonyColorsPro
 				[Serialization.SerializeAs("injectedPoint")]
 				internal class InjectedPoint
 				{
-					// TODO instead of 'bool isReplace'
-					internal enum ReplaceMode
-					{
-						Replace,
-						Prepend,
-						Append
-					}
-
 					[Serialization.SerializeAs("name")] internal string name;
 					[Serialization.SerializeAs("enabled")] internal bool enabled = true;
 					[Serialization.SerializeAs("replace")] internal bool isReplace;
-					[Serialization.SerializeAs("replaceMode")] internal ReplaceMode replaceMode;
-					[Serialization.SerializeAs("ignoreIndent")] internal bool ignoreIndent = true;
 					[Serialization.SerializeAs("displayName")] internal string info;
 					[Serialization.SerializeAs("blockName")] internal string blockName;
 					[Serialization.SerializeAs("program")] internal ShaderProperty.ProgramType program;
@@ -228,7 +220,7 @@ namespace ToonyColorsPro
 						}
 					}
 
-					internal List<string> GetCodeLinesWithReplacedVariables(string indent, bool ignoreLineIndent = false)
+					internal List<string> GetCodeLinesWithReplacedVariables(string indent)
 					{
 						var newLinesList = new List<string>();
 						foreach (var line in block.codeLines)
@@ -242,18 +234,15 @@ namespace ToonyColorsPro
 								{
 									// figure out indent from current line to properly align variable declaration
 									string lineIndent = "";
-									if (!ignoreLineIndent)
+									for (int i = 0; i < line.Length; i++)
 									{
-										for (int i = 0; i < line.Length; i++)
+										if (char.IsWhiteSpace(line[i]))
 										{
-											if (char.IsWhiteSpace(line[i]))
-											{
-												lineIndent += line[i];
-											}
-											else
-											{
-												break;
-											}
+											lineIndent += line[i];
+										}
+										else
+										{
+											break;
 										}
 									}
 
@@ -265,7 +254,7 @@ namespace ToonyColorsPro
 								}
 							}
 							
-							newLinesList.Add(indent + (newLine ?? (ignoreLineIndent ? line.TrimStart() : line)));
+							newLinesList.Add(indent + (newLine ?? line));
 						}
 						
 						return newLinesList;
@@ -279,7 +268,6 @@ namespace ToonyColorsPro
 					internal List<ShaderPropertyInfo> shaderPropertiesInfos = new List<ShaderPropertyInfo>();
 
 					internal bool isReplaceBlock;
-					internal InjectedPoint.ReplaceMode replaceMode;
 					internal string searchString;
 					internal string info;
 					internal string autoInjection;
@@ -566,18 +554,20 @@ namespace ToonyColorsPro
 								InjectableBlock currentBlock = null;
 								var codeLines = new List<string>();
 
-								void AddCurrentBlock()
+								System.Action addCurrentBlock = () =>
 								{
 									if (currentBlock != null)
 									{
-										int i = codeLines.Count - 1;
+										int i = codeLines.Count-1;
 										while (i >= 0 && codeLines[i] == "")
 										{
-											codeLines.RemoveAt(codeLines.Count - 1);
+											codeLines.RemoveAt(codeLines.Count-1);
 											i--;
 										}
 
-										if (codeLines.Count > 0 && ((currentBlock.isReplaceBlock && currentBlock.searchString != "") || !currentBlock.isReplaceBlock))
+										if (codeLines.Count > 0
+										&& ((currentBlock.isReplaceBlock && currentBlock.searchString != "")
+										|| !currentBlock.isReplaceBlock))
 										{
 											currentBlock.codeLines = codeLines.ToArray();
 											blockList.Add(currentBlock);
@@ -585,7 +575,7 @@ namespace ToonyColorsPro
 
 										codeLines.Clear();
 									}
-								}
+								};
 
 								bool parsingSearchString = false;
 								while ((line = stringReader.ReadLine()) != null)
@@ -603,14 +593,14 @@ namespace ToonyColorsPro
 										// new block
 										if (trimmedLine.StartsWith("//# BLOCK:"))
 										{
-											AddCurrentBlock();
+											addCurrentBlock();
 
 											string blockName = trimmedLine.Substring("//# BLOCK:".Length).Trim();
 											if (string.IsNullOrEmpty(blockName))
 											{
 												throw new System.Exception("Line '//# BLOCK:' requires a name, please see the documentation");
 											}
-
+											
 											currentBlock = new InjectableBlock()
 											{
 												name = blockName
@@ -619,53 +609,18 @@ namespace ToonyColorsPro
 										// new replace block
 										else if (trimmedLine.StartsWith("//# REPLACE:"))
 										{
-											AddCurrentBlock();
+											addCurrentBlock();
 
 											string blockName = trimmedLine.Substring("//# REPLACE:".Length).Trim();
 											if (string.IsNullOrEmpty(blockName))
+											{
 												throw new System.Exception("Line '//# REPLACE:' requires a name, please see the documentation");
-
+											}
+											
 											currentBlock = new InjectableBlock()
 											{
 												name = blockName,
 												isReplaceBlock = true,
-												replaceMode = InjectedPoint.ReplaceMode.Replace,
-												searchString = ""
-											};
-											parsingSearchString = true;
-										}
-										// new append block
-										else if (trimmedLine.StartsWith("//# APPEND:"))
-										{
-											AddCurrentBlock();
-
-											string blockName = trimmedLine.Substring("//# APPEND:".Length).Trim();
-											if (string.IsNullOrEmpty(blockName))
-												throw new System.Exception("Line '//# APPEND:' requires a name, please see the documentation");
-
-											currentBlock = new InjectableBlock()
-											{
-												name = blockName,
-												isReplaceBlock = true,
-												replaceMode = InjectedPoint.ReplaceMode.Append,
-												searchString = ""
-											};
-											parsingSearchString = true;
-										}
-										// new prepend block
-										else if (trimmedLine.StartsWith("//# PREPEND:"))
-										{
-											AddCurrentBlock();
-
-											string blockName = trimmedLine.Substring("//# PREPEND:".Length).Trim();
-											if (string.IsNullOrEmpty(blockName))
-												throw new System.Exception("Line '//# PREPEND:' requires a name, please see the documentation");
-
-											currentBlock = new InjectableBlock()
-											{
-												name = blockName,
-												isReplaceBlock = true,
-												replaceMode = InjectedPoint.ReplaceMode.Prepend,
 												searchString = ""
 											};
 											parsingSearchString = true;
@@ -716,7 +671,7 @@ namespace ToonyColorsPro
 											{
 												continue;
 											}
-
+											
 											if (currentBlock == null)
 											{
 												throw new System.Exception("Property declaration outside of block");
@@ -726,7 +681,7 @@ namespace ToonyColorsPro
 											{
 												throw new System.Exception("//# REPLACE block variables must declare their shader program first ('vertex' or 'fragment')");
 											}
-
+											
 											if (!currentBlock.isReplaceBlock && !trimmedLineLower.StartsWith("//# float"))
 											{
 												throw new System.Exception("Regular block variables must not declare the shader program");
@@ -764,7 +719,7 @@ namespace ToonyColorsPro
 												variableType = variableType,
 												defaultValue = defaultValue
 											};
-
+											
 											if (currentBlock.isReplaceBlock)
 											{
 												ShaderProperty.ProgramType programType = ShaderProperty.ProgramType.Fragment;
@@ -774,7 +729,7 @@ namespace ToonyColorsPro
 												}
 												spi.programType = programType;
 											}
-
+											
 											currentBlock.shaderPropertiesInfos.Add(spi);
 										}
 									}
@@ -792,7 +747,7 @@ namespace ToonyColorsPro
 
 									lineNb++;
 								}
-								AddCurrentBlock();
+								addCurrentBlock();
 							}
 							catch (System.Exception e)
 							{
@@ -907,12 +862,8 @@ namespace ToonyColorsPro
 							{
 								GUILayout.Space(margin + margin2);
 
-								string prefix = !point.isReplace ? "@ "
-									: point.replaceMode == InjectedPoint.ReplaceMode.Append ? "Append block ("
-										: point.replaceMode == InjectedPoint.ReplaceMode.Prepend ? "Prepend block ("
-											: "Replace block (";
-								GUIContent label = TCP2_GUI.TempContent(prefix + point.name);
-								Rect rect = GUILayoutUtility.GetRect(label, EditorStyles.label, GUILayout.ExpandWidth(true));
+								var label = TCP2_GUI.TempContent(point.isReplace ? "Replace block" : "@ " + point.name);
+								var rect = GUILayoutUtility.GetRect(label, EditorStyles.label, GUILayout.ExpandWidth(true));
 								rect.xMin += 4; // small left padding
 
 								enableButtonRect = rect;
@@ -926,21 +877,7 @@ namespace ToonyColorsPro
 								removeButtonRect.x += rect.width;
 
 								GUI.Label(rect, label, EditorStyles.label);
-
-								// Ignore indent toggle (replace blocks)
-								if (point.isReplace)
-								{
-									float labelWidth = EditorStyles.label.CalcSize(label).x;
-									Rect toggleRect = rect;
-									toggleRect.x += labelWidth + 2;
-									toggleRect.width = 118;
-									point.ignoreIndent = GUI.Toggle(toggleRect, point.ignoreIndent, "Ignore indent spaces", miniToggle);
-
-									toggleRect.x = toggleRect.xMax + 2;
-									toggleRect.width = 10;
-									GUI.Label(toggleRect, ")");
-								}
-
+								
 								GUILayout.Space(removeButtonRect.width);
 							}
 							EditorGUILayout.EndHorizontal();
@@ -1109,7 +1046,6 @@ namespace ToonyColorsPro
 						var ip = new InjectedPoint()
 						{
 							isReplace = true,
-							replaceMode = block.replaceMode,
 							block = block,
 							blockName = block.name,
 							info = block.info
@@ -1123,26 +1059,6 @@ namespace ToonyColorsPro
 					{
 						var foundIp = injectedPoints.Find(ip => ip.blockName == block.name);
 						injectedPoints.Remove(foundIp);
-					}
-
-					static GUIStyle _miniToggle;
-					static GUIStyle miniToggle
-					{
-						get
-						{
-							if(_miniToggle == null)
-							{
-								_miniToggle = "ShurikenToggle";
-								_miniToggle.fontSize = 10;
-								var color = _miniToggle.normal.textColor;
-								_miniToggle.hover.textColor = color;
-								_miniToggle.onHover.textColor = color;
-								_miniToggle.onNormal.textColor = color;
-								_miniToggle.active.textColor = color;
-								_miniToggle.onActive.textColor = color;
-							}
-							return _miniToggle;
-						}
 					}
 				}
 
@@ -1279,96 +1195,13 @@ namespace ToonyColorsPro
 							
 							if (ip.block.isReplaceBlock)
 							{
-								bool isAppend = ip.block.replaceMode == InjectedPoint.ReplaceMode.Append;
-								bool isPrepend = ip.block.replaceMode == InjectedPoint.ReplaceMode.Prepend;
-
-								if (ip.ignoreIndent)
-								{
-									var sourceLines = new List<string>(stringBuilder.ToString().Split(new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries));
-									string[] linesToSearch = ip.block.searchString.Split(new char[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
-									if (linesToSearch.Length == 0)
-										continue;
-
-									int startIndex = 0;
-									int overflow = 0;
-									REPEAT_LOOP:
-									for (int i = startIndex; i < sourceLines.Count; i++)
-									{
-										overflow++;
-										if (overflow > 99999)
-											throw new OverflowException();
-
-										string line = sourceLines[i];
-										string trimmedLine = line.TrimStart();
-										string minIndent = trimmedLine.Length > 0 ? line.Replace(trimmedLine, "") : "";
-										if (trimmedLine == linesToSearch[0].TrimStart())
-										{
-											int matchIndex = i;
-											bool matchAllLines = true;
-
-											for (int j = 1; j < linesToSearch.Length; j++)
-											{
-												string searchLine = linesToSearch[j];
-												string trimmedSearchLine = searchLine.TrimStart();
-												string trimmedSourceLine = sourceLines[i + j].TrimStart();
-												if (trimmedSourceLine != trimmedSearchLine)
-												{
-													matchAllLines = false;
-													break;
-												}
-
-												string indent = trimmedSourceLine.Length > 0 ? sourceLines[i + j].Replace(trimmedSourceLine, "") : "";
-												if (indent.Length < minIndent.Length)
-													minIndent = indent;
-											}
-
-											if (matchAllLines)
-											{
-												if (!isAppend && !isPrepend)
-												{
-													for (int j = 0; j < linesToSearch.Length; j++)
-														sourceLines.RemoveAt(matchIndex);
-												}
-
-												var replaceList = ip.GetCodeLinesWithReplacedVariables(minIndent, true);
-												replaceList.Insert(0, "//================================");
-												replaceList.Insert(1, $"// {(isAppend ? "Appended" : isPrepend ? "Prepended" : "Replaced")} through Code Injection:");
-												replaceList.Add("//================================");
-
-												for (int j = replaceList.Count - 1; j >= 0; j--)
-												{
-													string replacement = replaceList[j];
-													if (!isAppend)
-														sourceLines.Insert(matchIndex, replacement);
-													else
-														sourceLines.Insert(matchIndex + linesToSearch.Length, replacement);
-												}
-
-												startIndex = matchIndex + replaceList.Count + 1;
-												goto REPEAT_LOOP;
-											}
-										}
-									}
-
-									stringBuilder.Clear();
-									foreach (string line in sourceLines)
-										stringBuilder.AppendLine(line);
-								}
-								else
-								{
-									var replaceList = ip.GetCodeLinesWithReplacedVariables("");
-									replaceList.Insert(0, "//================================");
-									replaceList.Insert(1, "// Replaced through Code Injection:");
-									replaceList.Add("//================================");
-									string replaceLines = string.Join(Environment.NewLine, replaceList);
-
-									if (isAppend)
-										replaceLines += $"{Environment.NewLine}{ip.block.searchString}";
-									if (isPrepend)
-										replaceLines = $"{ip.block.searchString}{Environment.NewLine}{replaceLines}";
-
-									stringBuilder = stringBuilder.Replace(ip.block.searchString, replaceLines);
-								}
+								var list = ip.GetCodeLinesWithReplacedVariables("");
+								list.Insert(0, "//================================");
+								list.Insert(1, "// Replaced through Code Injection:");
+								list.Add("//================================");
+								
+								string replaceLines = string.Join(Environment.NewLine, list);
+								stringBuilder = stringBuilder.Replace(ip.block.searchString, string.Join("\n", replaceLines));
 							}
 						}
 					}

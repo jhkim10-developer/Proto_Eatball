@@ -102,29 +102,29 @@ namespace ToonyColorsPro
 
 			void HandleKeyboard()
 			{
-				if (InputAbstraction.KeyDown_Delete || InputAbstraction.KeyDown_H)
+				if (Input.GetKeyDown(KeyCode.Delete) || Input.GetKeyDown(KeyCode.H))
 				{
 					canvas.enabled = !canvas.enabled;
 				}
 
-				if (InputAbstraction.KeyDown_Escape)
+				if (Input.GetKeyDown(KeyCode.Escape)) 
 				{
 					ResetView();
 				}
 
-				if (InputAbstraction.KeyDown_RightArrow)
+				if (Input.GetKeyDown(KeyCode.RightArrow))
 				{
 					NextHighlight();
 				}
 
-				if (InputAbstraction.KeyDown_LeftArrow)
+				if (Input.GetKeyDown(KeyCode.LeftArrow))
 				{
 					PrevHighlight();
 				}
 
-				if(InputAbstraction.KeyDown_Tab)
+				if(Input.GetKeyDown(KeyCode.Tab))
 				{
-					if (InputAbstraction.Key_LeftShift || InputAbstraction.Key_RightShift)
+					if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
 					{
 						lightingIndex--;
 						if (lightingIndex < 0) lightingIndex = envButtons.Length - 1;

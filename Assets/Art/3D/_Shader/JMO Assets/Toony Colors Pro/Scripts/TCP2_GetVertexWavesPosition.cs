@@ -284,11 +284,11 @@ namespace ToonyColorsPro
 								var sineCountProperty = serializedObject.FindProperty("sineCount");
 								if (mat.shader != null)
 								{
-									int count = mat.shader.GetPropertyCount();
+									int count = ShaderUtil.GetPropertyCount(mat.shader);
 									sineCountProperty.intValue = 1;
 									for (int i = 0; i < count; i++)
 									{
-										string name = mat.shader.GetPropertyName(i);
+										string name = ShaderUtil.GetPropertyName(mat.shader, i);
 										if (name == "_SineCount8")
 										{
 											sineCountProperty.intValue = 8;

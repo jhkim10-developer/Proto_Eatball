@@ -98,42 +98,42 @@ namespace ToonyColorsPro
 
 				//Keyboard shortcuts
 				//Switch style
-				if (InputAbstraction.KeyDown_Tab)
+				if (Input.GetKeyDown(KeyCode.Tab))
 				{
-					if (InputAbstraction.Key_LeftShift || InputAbstraction.Key_RightShift)
+					if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
 						SetStyle(--style);
 					else
 						SetStyle(++style);
 				}
 
 				//Keypad -> style
-				if (InputAbstraction.KeyDown_1)
+				if (Input.GetKeyDown(KeyCode.Alpha1) || Input.GetKeyDown(KeyCode.Keypad1))
 				{
 					SetStyle(0);
 				}
-				if (InputAbstraction.KeyDown_2)
+				if (Input.GetKeyDown(KeyCode.Alpha2) || Input.GetKeyDown(KeyCode.Keypad2))
 				{
 					SetStyle(1);
 				}
-				if (InputAbstraction.KeyDown_3)
+				if (Input.GetKeyDown(KeyCode.Alpha3) || Input.GetKeyDown(KeyCode.Keypad3))
 				{
 					SetStyle(2);
 				}
-				if (InputAbstraction.KeyDown_4)
+				if (Input.GetKeyDown(KeyCode.Alpha4) || Input.GetKeyDown(KeyCode.Keypad4))
 				{
 					SetStyle(3);
 				}
-				if (InputAbstraction.KeyDown_5)
+				if (Input.GetKeyDown(KeyCode.Alpha5) || Input.GetKeyDown(KeyCode.Keypad5))
 				{
 					SetStyle(4);
 				}
-				if (InputAbstraction.KeyDown_6)
+				if (Input.GetKeyDown(KeyCode.Alpha6) || Input.GetKeyDown(KeyCode.Keypad6))
 				{
 					SetStyle(5);
 				}
 
 				//Show/hide UI
-				if (InputAbstraction.KeyDown_H)
+				if (Input.GetKeyDown(KeyCode.H))
 				{
 					canvas.enabled = !canvas.enabled;
 				}
