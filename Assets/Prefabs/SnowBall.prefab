@@ -178,7 +178,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spotSize: 0
   growth: {fileID: 8571255109818466229}
-  spotRadiusToBrush: 8
+  spotRadiusToBrush: 7.5
   minSpotSize: 0.1
   maxSpotSize: 20
 --- !u!114 &8571255109818466229
@@ -193,7 +193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffb86aa03fd841f43ae1915c9a9782be, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startRadius: 0.15
+  startRadius: 0.2
   maxRadius: 3
   radiusPerMeter: 0.02
   minMoveDelta: 0.002

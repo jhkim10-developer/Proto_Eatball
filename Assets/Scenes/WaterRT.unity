@@ -246,8 +246,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!4 &17388563 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2b2d892cba9330c4fadc6c3c3f48ec0d, type: 3}
@@ -380,8 +380,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!4 &39819814 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2b2d892cba9330c4fadc6c3c3f48ec0d, type: 3}
@@ -519,8 +519,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!1001 &85071616
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -653,8 +653,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!1001 &100932463
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -787,8 +787,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!1001 &118946327
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -921,8 +921,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!1001 &132873279
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1055,8 +1055,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!1001 &138299311
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1189,8 +1189,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!1001 &147722409
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1323,8 +1323,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!1001 &149583361
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1457,8 +1457,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!1001 &183764140
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1591,8 +1591,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!1001 &188615393
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1725,8 +1725,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!1001 &225959158
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1859,8 +1859,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!1001 &248102872
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1993,8 +1993,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!1001 &253798740
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2122,8 +2122,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!4 &253798746 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2b2d892cba9330c4fadc6c3c3f48ec0d, type: 3}
@@ -2266,8 +2266,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -2327,7 +2327,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: -0.1
+  near clip plane: 0.01
   far clip plane: 1000
   field of view: 60
   orthographic: 1
@@ -2656,8 +2656,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!4 &374046582 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2b2d892cba9330c4fadc6c3c3f48ec0d, type: 3}
@@ -2790,8 +2790,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!4 &390637655 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2b2d892cba9330c4fadc6c3c3f48ec0d, type: 3}
@@ -2929,8 +2929,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0
@@ -3184,8 +3184,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!1001 &427467423
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3313,8 +3313,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!4 &427467429 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2b2d892cba9330c4fadc6c3c3f48ec0d, type: 3}
@@ -3452,8 +3452,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!1001 &442887879
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3560,8 +3560,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!65 &442887885
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3720,8 +3720,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!1001 &465762968
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3854,8 +3854,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!1001 &533462007
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3988,8 +3988,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!1001 &542315905
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4117,8 +4117,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!4 &542315911 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2b2d892cba9330c4fadc6c3c3f48ec0d, type: 3}
@@ -4318,8 +4318,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!1001 &589529603
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4447,8 +4447,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!4 &589529609 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2b2d892cba9330c4fadc6c3c3f48ec0d, type: 3}
@@ -4586,8 +4586,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!1001 &597463608
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4720,8 +4720,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!1001 &618792836
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4849,8 +4849,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!4 &618792842 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2b2d892cba9330c4fadc6c3c3f48ec0d, type: 3}
@@ -4988,8 +4988,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!1001 &622677795
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5122,8 +5122,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!1001 &632552422
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5256,8 +5256,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!1 &652343828
 GameObject:
   m_ObjectHideFlags: 0
@@ -5456,8 +5456,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!1 &679240375
 GameObject:
   m_ObjectHideFlags: 0
@@ -5770,8 +5770,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!4 &692319356 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2b2d892cba9330c4fadc6c3c3f48ec0d, type: 3}
@@ -5909,8 +5909,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!1001 &712473094
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6043,8 +6043,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!1001 &755718781
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6177,8 +6177,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!1001 &761013334
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6311,8 +6311,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!1001 &786857693
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6440,8 +6440,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!4 &786857699 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2b2d892cba9330c4fadc6c3c3f48ec0d, type: 3}
@@ -6579,8 +6579,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -6762,8 +6762,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!1001 &842728150
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6896,8 +6896,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!1001 &863019749
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7030,8 +7030,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!1001 &891629016
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7159,8 +7159,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!4 &891629022 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2b2d892cba9330c4fadc6c3c3f48ec0d, type: 3}
@@ -7298,8 +7298,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!1001 &958726122
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7432,8 +7432,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!1001 &958778113
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7561,8 +7561,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!4 &958778119 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2b2d892cba9330c4fadc6c3c3f48ec0d, type: 3}
@@ -7700,8 +7700,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!1001 &987981334
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7829,8 +7829,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!4 &987981340 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2b2d892cba9330c4fadc6c3c3f48ec0d, type: 3}
@@ -7968,8 +7968,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!1001 &1013130661
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8097,8 +8097,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!4 &1013130667 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2b2d892cba9330c4fadc6c3c3f48ec0d, type: 3}
@@ -8315,8 +8315,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!1 &1034777109
 GameObject:
   m_ObjectHideFlags: 0
@@ -8475,8 +8475,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!4 &1061811079 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2b2d892cba9330c4fadc6c3c3f48ec0d, type: 3}
@@ -8614,8 +8614,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!1001 &1073367041
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8748,8 +8748,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!1001 &1091367716
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8877,8 +8877,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!4 &1091367722 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2b2d892cba9330c4fadc6c3c3f48ec0d, type: 3}
@@ -9016,8 +9016,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!1001 &1122635989
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9150,8 +9150,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!1001 &1164991334
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9284,8 +9284,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!1001 &1170003738
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9418,8 +9418,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!1 &1175528951
 GameObject:
   m_ObjectHideFlags: 0
@@ -9583,8 +9583,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!1001 &1184915612
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9717,8 +9717,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!1001 &1203612685
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9851,8 +9851,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!1001 &1217851896
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9985,8 +9985,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!1001 &1221826394
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10114,122 +10114,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!4 &1221826400 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2b2d892cba9330c4fadc6c3c3f48ec0d, type: 3}
   m_PrefabInstance: {fileID: 1221826394}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1223329067
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1223329071}
-  - component: {fileID: 1223329070}
-  - component: {fileID: 1223329069}
-  - component: {fileID: 1223329068}
-  m_Layer: 0
-  m_Name: Floor
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!64 &1223329068
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1223329067}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 5
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!23 &1223329069
-MeshRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1223329067}
-  m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 2
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 3
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_AdditionalVertexStreams: {fileID: 0}
---- !u!33 &1223329070
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1223329067}
-  m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
---- !u!4 &1223329071
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1223329067}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 10, y: 1, z: 10}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1227452432
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10362,8 +10253,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!1001 &1228714346
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10496,8 +10387,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!1001 &1250470242
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10630,8 +10521,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!1001 &1258090324
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10759,8 +10650,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!4 &1258090330 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2b2d892cba9330c4fadc6c3c3f48ec0d, type: 3}
@@ -10898,8 +10789,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!1001 &1287329662
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11027,8 +10918,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!4 &1287329668 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2b2d892cba9330c4fadc6c3c3f48ec0d, type: 3}
@@ -11161,8 +11052,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!4 &1301810383 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2b2d892cba9330c4fadc6c3c3f48ec0d, type: 3}
@@ -11300,8 +11191,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!1001 &1363973411
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11434,8 +11325,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!1001 &1396910680
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11568,8 +11459,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!1001 &1419158937
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11702,8 +11593,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!1001 &1427737957
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -11831,8 +11722,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!4 &1427737963 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2b2d892cba9330c4fadc6c3c3f48ec0d, type: 3}
@@ -12001,8 +11892,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!1001 &1527874644
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12135,8 +12026,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!1001 &1531079712
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12269,8 +12160,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!1001 &1543092256
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12403,8 +12294,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!1001 &1550575680
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12532,8 +12423,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!4 &1550575686 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2b2d892cba9330c4fadc6c3c3f48ec0d, type: 3}
@@ -12671,8 +12562,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!1001 &1561691475
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12805,8 +12696,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!1001 &1586410119
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12934,8 +12825,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!4 &1586410125 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2b2d892cba9330c4fadc6c3c3f48ec0d, type: 3}
@@ -13073,8 +12964,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!1001 &1602122877
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13207,8 +13098,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!1001 &1606473269
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13336,8 +13227,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!4 &1606473275 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2b2d892cba9330c4fadc6c3c3f48ec0d, type: 3}
@@ -13475,8 +13366,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!1001 &1685715396
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13604,8 +13495,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!4 &1685715402 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2b2d892cba9330c4fadc6c3c3f48ec0d, type: 3}
@@ -13738,8 +13629,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!4 &1748247587 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2b2d892cba9330c4fadc6c3c3f48ec0d, type: 3}
@@ -13877,8 +13768,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!1001 &1759381155
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14006,8 +13897,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!4 &1759381161 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2b2d892cba9330c4fadc6c3c3f48ec0d, type: 3}
@@ -14145,8 +14036,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!1001 &1760311656
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14279,8 +14170,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!1001 &1769667428
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14408,8 +14299,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!4 &1769667434 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2b2d892cba9330c4fadc6c3c3f48ec0d, type: 3}
@@ -14547,8 +14438,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!1001 &1782611840
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14742,8 +14633,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!1001 &1807016733
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14876,8 +14767,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!1001 &1818829211
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15010,8 +14901,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!1001 &1830281815
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15139,8 +15030,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!4 &1830281821 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2b2d892cba9330c4fadc6c3c3f48ec0d, type: 3}
@@ -15278,8 +15169,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!1 &1849102623
 GameObject:
   m_ObjectHideFlags: 0
@@ -15438,8 +15329,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!4 &1860098542 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2b2d892cba9330c4fadc6c3c3f48ec0d, type: 3}
@@ -15577,8 +15468,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!1001 &1891468208
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15711,8 +15602,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!1001 &1895419145
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15840,8 +15731,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!4 &1895419151 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2b2d892cba9330c4fadc6c3c3f48ec0d, type: 3}
@@ -15979,8 +15870,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!1001 &1927972129
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16113,8 +16004,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!1001 &1932984822
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16242,8 +16133,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!4 &1932984828 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2b2d892cba9330c4fadc6c3c3f48ec0d, type: 3}
@@ -16381,8 +16272,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!1001 &1961069748
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16510,8 +16401,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!4 &1961069754 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2b2d892cba9330c4fadc6c3c3f48ec0d, type: 3}
@@ -16649,8 +16540,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!1001 &2003059966
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16783,8 +16674,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!1001 &2062745687
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16917,8 +16808,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!1001 &2107439423
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17051,8 +16942,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!1001 &2120951021
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -17180,8 +17071,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!4 &2120951027 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 2b2d892cba9330c4fadc6c3c3f48ec0d, type: 3}
@@ -17319,8 +17210,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!1 &2142105039
 GameObject:
   m_ObjectHideFlags: 0
@@ -17484,8 +17375,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
   snowRT: {fileID: 0}
-  colorValueToAdd: 0.0025
-  resolution: 512
+  colorValueToAdd: 0.005
+  resolution: 256
 --- !u!1 &92855064429163288
 GameObject:
   m_ObjectHideFlags: 0
@@ -18087,7 +17978,6 @@ SceneRoots:
   - {fileID: 832575519}
   - {fileID: 1013202416}
   - {fileID: 336163522}
-  - {fileID: 1223329071}
   - {fileID: 1782611840}
   - {fileID: 766332687231057015}
   - {fileID: 679240377}

@@ -15,7 +15,9 @@ float spotSize;
 [numthreads(8,8,1)]
 void CSMain (uint3 id : SV_DispatchThreadID)
 {
-    snowImage[id.xy] += float4(colorValueToAdd, colorValueToAdd, colorValueToAdd, colorValueToAdd);
+    float4 v = snowImage[id.xy];
+    v += float4(colorValueToAdd, colorValueToAdd, colorValueToAdd, colorValueToAdd);
+    snowImage[id.xy] = saturate(v);
 }
 
 [numthreads(8, 8, 1)]
