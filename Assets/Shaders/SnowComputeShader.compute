@@ -5,7 +5,7 @@
 
 // Create a RenderTexture with enableRandomWrite flag and set it
 // with cs.SetTexture
-RWTexture2D<float4> snowImage;
+RWTexture2D<float4> snowImage; 
 float colorValueToAdd;
 float resolution;
 float positionX;

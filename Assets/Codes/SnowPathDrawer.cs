@@ -20,6 +20,12 @@ public class SnowPathDrawer : MonoBehaviour
     private SnowController snowController;
     private GameObject[] snowControllerObjs;
 
+    // ====== growth 관련 코드 ======
+    [SerializeField] private SnowBallGrowth growth;
+    [SerializeField] private float spotRadiusToBrush = 1f; // 튜닝값: 월드 반지름 -> RT 브러시로 변환 스케일
+    [SerializeField] private float minSpotSize = 0.1f;
+    [SerializeField] private float maxSpotSize = 20f;
+
     private void Awake()
     {
         snowControllerObjs = GameObject.FindGameObjectsWithTag("SnowGround");
@@ -27,9 +33,18 @@ public class SnowPathDrawer : MonoBehaviour
 
     private void FixedUpdate()
     {
-        for(int i = 0; i < snowControllerObjs.Length; i++)
+        // 0) 성장값 → 브러시 크기 변환
+        if (growth != null)
         {
-            if (Vector3.Distance(snowControllerObjs[i].transform.position, transform.position) > spotSize * 5f) continue;
+            float desired = growth.Radius * spotRadiusToBrush;
+            spotSize = Mathf.Clamp(desired, minSpotSize, maxSpotSize);
+        }
+
+        // 1) 근처 SnowGround에만 찍기
+        for (int i = 0; i < snowControllerObjs.Length; i++)
+        {
+            if (Vector3.Distance(snowControllerObjs[i].transform.position, transform.position) > spotSize * 5f) 
+                continue;
 
             snowController = snowControllerObjs[i].GetComponent<SnowController>();
             snowRT = snowController.snowRT;
