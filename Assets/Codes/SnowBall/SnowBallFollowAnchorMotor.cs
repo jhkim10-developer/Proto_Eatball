@@ -26,11 +26,10 @@ public class SnowBallFollowAnchorMotor : MonoBehaviour
     [Header("Growth (optional)")]
     [SerializeField] private SnowBallGrowth growth;          // 네 Growth 컴포넌트
 
-    public void Bind(Transform owner, Transform anchor, SnowBallGrowth growth)
+    public void Bind(Transform owner, Transform anchor)
     {
         this.target = owner;
         this.anchor = anchor;
-        this.growth = growth; // (선택) follow distance 연동하려면 유지
     }
 
     private void Awake()

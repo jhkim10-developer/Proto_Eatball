@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 6394108292617097975}
   - component: {fileID: 6692442887594417202}
   - component: {fileID: 1863610070958826330}
+  - component: {fileID: 7575128159677972557}
   m_Layer: 7
   m_Name: Player
   m_TagString: Untagged
@@ -184,13 +185,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a9e29b3e2b27e0409af65db995d4c5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
-  snowRT: {fileID: 0}
   spotSize: 5
   growth: {fileID: 0}
   spotRadiusToBrush: 120
   minSpotSize: 0.1
   maxSpotSize: 20
+--- !u!114 &7575128159677972557
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 139143037088332869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 766724a2e06423248b0d1a2124fb10af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ballAnchor: {fileID: 7513112222116224035}
+  snowBallPrefab: {fileID: 8581250227960302507, guid: d976813e7831f8a4188c6a5f80584b5a, type: 3}
+  spawnOnEnable: 0
+  spawnOnlyOnce: 1
+  snapOnNextFixedUpdate: 1
+  isPlayer: 1
 --- !u!1 &667586575594157410
 GameObject:
   m_ObjectHideFlags: 0

@@ -31,7 +31,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8581250227960302507}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2, y: 0.9, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
@@ -151,7 +151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b9a17b4f190c7be46836f6afc18f7c13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  target: {fileID: 0}
   anchor: {fileID: 0}
   rb: {fileID: 6920747760171487522}
   maxSpeed: 11
@@ -161,7 +161,7 @@ MonoBehaviour:
   stopRadius: 0.05
   nearSpeed: 5
   baseMinDistance: 0.4
-  radiusToDistance: 1.05
+  radiusToDistance: 1.1
   extraBuffer: 0.05
   growth: {fileID: 8571255109818466229}
 --- !u!114 &8055662584811616682
@@ -176,8 +176,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0a9e29b3e2b27e0409af65db995d4c5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  snowComputeShader: {fileID: 7200000, guid: df54d6fb38ac2aa41a708c29cf93b894, type: 3}
-  snowRT: {fileID: 0}
   spotSize: 0
   growth: {fileID: 8571255109818466229}
   spotRadiusToBrush: 8
