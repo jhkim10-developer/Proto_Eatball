@@ -821,7 +821,23 @@ PlayerSettings:
   webGLWebAssemblyBigInt: 0
   webGLCloseOnQuit: 0
   webWasm2023: 0
-  scriptingDefineSymbols: {}
+  scriptingDefineSymbols:
+    Android: KAMGAM_SKY_CLOUDS_URP
+    EmbeddedLinux: KAMGAM_SKY_CLOUDS_URP
+    GameCoreScarlett: KAMGAM_SKY_CLOUDS_URP
+    GameCoreXboxOne: KAMGAM_SKY_CLOUDS_URP
+    Kepler: KAMGAM_SKY_CLOUDS_URP
+    LinuxHeadlessSimulation: KAMGAM_SKY_CLOUDS_URP
+    Nintendo Switch: KAMGAM_SKY_CLOUDS_URP
+    Nintendo Switch 2: KAMGAM_SKY_CLOUDS_URP
+    PS4: KAMGAM_SKY_CLOUDS_URP
+    PS5: KAMGAM_SKY_CLOUDS_URP
+    QNX: KAMGAM_SKY_CLOUDS_URP
+    Standalone: KAMGAM_SKY_CLOUDS_URP
+    VisionOS: KAMGAM_SKY_CLOUDS_URP
+    WebGL: KAMGAM_SKY_CLOUDS_URP
+    XboxOne: KAMGAM_SKY_CLOUDS_URP
+    tvOS: KAMGAM_SKY_CLOUDS_URP
   additionalCompilerArguments: {}
   platformArchitecture: {}
   scriptingBackend:
