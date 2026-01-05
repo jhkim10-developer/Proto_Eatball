@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class SnowPathDrawer : MonoBehaviour
 {
-    public ComputeShader snowComputeShader;
-    public RenderTexture snowRT;
+    private ComputeShader snowComputeShader;
+    private RenderTexture snowRT;
 
     private string snowImageProperty = "snowImage";
     private string colorValueProperty = "colorValueToAdd";
@@ -48,7 +48,7 @@ public class SnowPathDrawer : MonoBehaviour
 
             snowController = snowControllerObjs[i].GetComponent<SnowController>();
             snowRT = snowController.snowRT;
-            //snowComputeShader = snowController.snowComputeShader;
+            snowComputeShader = snowController.snowComputeShader;
             GetPosition();
             DrawSpot();
         }

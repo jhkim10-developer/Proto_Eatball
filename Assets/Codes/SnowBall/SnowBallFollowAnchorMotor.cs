@@ -4,7 +4,7 @@
 public class SnowBallFollowAnchorMotor : MonoBehaviour
 {
     [Header("Refs")]
-    [SerializeField] private Transform player;   // 추가: 플레이어 중심
+    [SerializeField] private Transform target;   // 추가: 플레이어 중심
     [SerializeField] private Transform anchor;
     [SerializeField] private Rigidbody rb;
 
@@ -26,6 +26,13 @@ public class SnowBallFollowAnchorMotor : MonoBehaviour
     [Header("Growth (optional)")]
     [SerializeField] private SnowBallGrowth growth;          // 네 Growth 컴포넌트
 
+    public void Bind(Transform owner, Transform anchor, SnowBallGrowth growth)
+    {
+        this.target = owner;
+        this.anchor = anchor;
+        this.growth = growth; // (선택) follow distance 연동하려면 유지
+    }
+
     private void Awake()
     {
         if (rb == null) rb = GetComponent<Rigidbody>();
@@ -34,7 +41,7 @@ public class SnowBallFollowAnchorMotor : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (anchor == null || player == null) return;
+        if (anchor == null || this.target == null) return;
 
         // 1) 목표점(anchor)을 "최소거리 링" 위로 보정한 constrainedTarget 생성
         Vector3 target = GetConstrainedTargetOnRing();
@@ -70,7 +77,7 @@ public class SnowBallFollowAnchorMotor : MonoBehaviour
 
     private Vector3 GetConstrainedTargetOnRing()
     {
-        Vector3 playerPos = player.position;
+        Vector3 playerPos = target.position;
         Vector3 desired = anchor.position;
 
         // 성장에 따른 최소 거리 계산
@@ -82,7 +89,7 @@ public class SnowBallFollowAnchorMotor : MonoBehaviour
 
         // 앵커가 플레이어 바로 위/겹침이면 전방을 기본 방향으로
         if (planar.sqrMagnitude < 0.000001f)
-            planar = player.forward;
+            planar = target.forward;
 
         float dist = planar.magnitude;
 
