@@ -2,15 +2,15 @@ using System.Threading;
 using UnityEngine;
 
 [DisallowMultipleComponent]
-public class SnowBallSpawner : MonoBehaviour
+public class BallSpawner : MonoBehaviour
 {
     [Header("Refs")]
     [SerializeField] private Transform ballAnchor;
     [SerializeField] private GameObject snowBallPrefab;
 
     [Header("Spawn Rule")]
-    [SerializeField] private bool spawnOnEnable = true; // AI는 스폰 즉시 공 생성 추천
-    [SerializeField] private bool spawnOnlyOnce = true;
+    [SerializeField] private bool aiSpawnOnEnable = true; // AI는 스폰 즉시 공 생성
+    [SerializeField] private bool aiSpawnOnlyOnce = true; // AI는 공을 단 한번만 생성
 
     [Header("Spawn Fix")]
     [Tooltip("NavMeshAgent가 첫 Update에서 위치를 확정하는 경우를 대비해, 다음 FixedUpdate에 한 번 더 스냅합니다.")]
@@ -29,32 +29,49 @@ public class SnowBallSpawner : MonoBehaviour
     private void OnEnable()
     {
         //AI일 경우에는 AISpawner에서 공 생성, Player의 경우에는 여기에서 생성
-        //if (spawnOnEnable) TrySpawn(); 
-        if (isPlayer) TrySpawn();
+        if (isPlayer)
+        {
+            TrySpawn();
+        }
     }
 
     public void TrySpawn()
     {
-        if (spawnOnlyOnce && _spawned) return;
+        if (aiSpawnOnlyOnce && _spawned) return;
         if (snowBallPrefab == null || ballAnchor == null)
         {
-            Debug.LogWarning("[SnowBallSpawner] Missing refs.");
+            Debug.LogWarning("[BallSpawner] Missing refs.");
             return;
         }
 
         // 1) 처음부터 anchor 위치/회전으로 생성 (0,0,0 생성 방지)
         GameObject ball = Instantiate(snowBallPrefab, ballAnchor.position, ballAnchor.rotation);
+        var growth = ball.GetComponent<BallGrowth>();
 
-        if(isPlayer)
+        if (isPlayer)
         {
-            var growth = ball.GetComponent<SnowBallGrowth>();
-            FindFirstObjectByType<CamFollow>()?.BindGrowth(growth);
+            FindFirstObjectByType<CamFollow>()?.BindGrowth(growth);            
         }
+
+        // 스노우볼 바인딩 -> 각각의 캐릭터에 필요 (플레이어든 AI든)
+        CharacterBallRef ballRef = GetComponent<CharacterBallRef>();
+        ballRef.Bind(growth);
 
         // 2) Follow bind (owner/anchor)
         var follow = ball.GetComponent<SnowBallFollowAnchorMotor>();
         if (follow != null)
             follow.Bind(transform, ballAnchor);
+
+        // 고유 아이디 바인딩
+        var ballID = ball.GetComponent<BallID>();
+        if(ballID != null)
+        {
+            ballID.BindOwner(gameObject); //볼 스포너는 캐릭터에 붙어있잖아.
+        }
+        else
+        {
+            Debug.LogError("[BallSpawner] Cant' Find BallID Component");
+        }
 
         // 3) Rigidbody가 있으면 즉시 위치/속도 안정화
         if (ball.TryGetComponent<Rigidbody>(out var rb))

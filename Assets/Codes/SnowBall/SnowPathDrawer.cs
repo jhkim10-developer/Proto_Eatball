@@ -21,7 +21,7 @@ public class SnowPathDrawer : MonoBehaviour
     private GameObject[] snowControllerObjs;
 
     // ====== growth 관련 코드 ======
-    [SerializeField] private SnowBallGrowth growth;
+    [SerializeField] private BallGrowth growth;
     [SerializeField] private float spotRadiusToBrush = 1f; // 튜닝값: 월드 반지름 -> RT 브러시로 변환 스케일
     [SerializeField] private float minSpotSize = 0.1f;
     [SerializeField] private float maxSpotSize = 20f;

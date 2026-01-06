@@ -8,7 +8,7 @@ public class CamFollow : MonoBehaviour
     [SerializeField] float smoothTime = 0.15f;
 
     [Header("Zoom (Orthographic)")]
-    [SerializeField] private SnowBallGrowth growth;
+    [SerializeField] private BallGrowth growth;
     [SerializeField] private float baseOrthoSize = 7f;
     [SerializeField] private float radiusToSize = 0.6f;
     [SerializeField] private float zoomSmoothTime = 0.25f;
@@ -64,7 +64,7 @@ public class CamFollow : MonoBehaviour
     /// <summary>
     /// SnowBall이 런타임에 생성될 때 연결하기 위한 함수 (선택)
     /// </summary>
-    public void BindGrowth(SnowBallGrowth growth)
+    public void BindGrowth(BallGrowth growth)
     {
         this.growth = growth;
     }

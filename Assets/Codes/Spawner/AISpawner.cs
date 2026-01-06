@@ -127,7 +127,7 @@ public class AISpawner : MonoBehaviour
         }
 
         // SnowBall 자동 스폰
-        var snowBallSpawner = bot.GetComponent<SnowBallSpawner>();
+        var snowBallSpawner = bot.GetComponent<BallSpawner>();
         if (snowBallSpawner != null)
         {
             snowBallSpawner.TrySpawn();

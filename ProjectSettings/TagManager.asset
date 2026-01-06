@@ -5,17 +5,19 @@ TagManager:
   serializedVersion: 3
   tags:
   - SnowGround
+  - Character
+  - Ball
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Character
   - Water
   - UI
   - Ball
   - Player
   - SnowGround
-  - 
+  - DropBall
   - 
   - 
   - 

@@ -16,9 +16,12 @@ GameObject:
   - component: {fileID: 7528916040528261902}
   - component: {fileID: 6614561490963634186}
   - component: {fileID: 7278007641583212494}
-  m_Layer: 7
+  - component: {fileID: 3982628193980004082}
+  - component: {fileID: -5581919575285457969}
+  - component: {fileID: 7624989484792019063}
+  m_Layer: 3
   m_Name: AIBot
-  m_TagString: Untagged
+  m_TagString: Character
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -183,8 +186,48 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ballAnchor: {fileID: 7513112222116224035}
   snowBallPrefab: {fileID: 8581250227960302507, guid: d976813e7831f8a4188c6a5f80584b5a, type: 3}
-  spawnOnEnable: 1
-  spawnOnlyOnce: 1
+  aiSpawnOnEnable: 1
+  aiSpawnOnlyOnce: 1
+  snapOnNextFixedUpdate: 1
+  isPlayer: 0
+--- !u!114 &3982628193980004082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 139143037088332869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5ade85662cbe14f42ae60b604caa111b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-5581919575285457969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 139143037088332869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c9b37b4d10f88344183d337da7873a70, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  masterIDDebug: 0
+--- !u!114 &7624989484792019063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 139143037088332869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0a1e9b31a8e5b024893d9a77709967ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ballGrowth: {fileID: 0}
 --- !u!1 &667586575594157410
 GameObject:
   m_ObjectHideFlags: 0
@@ -194,7 +237,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7513112222116224035}
-  m_Layer: 7
+  m_Layer: 3
   m_Name: BallAnchor
   m_TagString: Untagged
   m_Icon: {fileID: -5397416234189338067, guid: 0000000000000000d000000000000000, type: 0}
@@ -228,7 +271,7 @@ GameObject:
   - component: {fileID: 3419406811061759657}
   - component: {fileID: 2168029168207217063}
   - component: {fileID: 4554384826551016439}
-  m_Layer: 7
+  m_Layer: 3
   m_Name: SphereForEdit
   m_TagString: Untagged
   m_Icon: {fileID: 0}

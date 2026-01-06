@@ -1,15 +1,16 @@
 using UnityEngine;
+using UnityEngine.XR.WindowsMR.Input;
 
 [DisallowMultipleComponent]
-public sealed class SnowBallGrowth : MonoBehaviour
+public sealed class BallGrowth : MonoBehaviour, IBallSizeProvider
 {
     [Header("Size")]
-    [SerializeField] private float startRadius = 0.1f;   // 월드 반지름(미터)
-    [SerializeField] private float maxRadius = 3.0f;
+    [SerializeField] private float startRadius = 0.2f;   // 월드 반지름(미터)
+    [SerializeField] private float maxRadius = 3.5f;
 
     [Header("Growth (distance based)")]
     [Tooltip("이동 거리 1m 당 반지름이 얼마나 증가하는지")]
-    [SerializeField] private float radiusPerMeter = 0.08f;
+    [SerializeField] private float radiusPerMeter = 0.02f;
 
     [Tooltip("이 값보다 느리면(미세한 떨림) 성장 누적 안 함")]
     [SerializeField] private float minMoveDelta = 0.002f;
@@ -20,8 +21,10 @@ public sealed class SnowBallGrowth : MonoBehaviour
     [Header("Optional Curve (0~1)")]
     [SerializeField] private AnimationCurve growthCurve = AnimationCurve.Linear(0, 0, 1, 1);
 
-    public float Radius { get; private set; } // 외부에서 읽기용 (브러시/깊이 동기화에 사용)
+    // === Interface ===
+    public float Radius { get; private set; } // 외부에서 읽기용 (브러시/깊이 동기화에 사용), 
     public float Normalized => Mathf.InverseLerp(startRadius, maxRadius, Radius);
+    // ======================================================================================
 
     private Vector3 _lastPos;
     private float _accumDistance;
@@ -36,6 +39,11 @@ public sealed class SnowBallGrowth : MonoBehaviour
 
     private void Update()
     {
+        //rawRadius(d) = startRadius + d * radiusPerMeter
+        //평균 속도 v일 때
+        //rawRadius(t) = startRadius + (v * t) * radiusPerMeter
+        //즉 ΔRadius/초(선형) = v * radiusPerMeter
+
         // 1) 이동 거리 누적
         Vector3 pos = transform.position;
         float delta = Vector3.Distance(pos, _lastPos);
