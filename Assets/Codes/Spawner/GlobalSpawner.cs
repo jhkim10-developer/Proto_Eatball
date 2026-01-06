@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class AISpawner : MonoBehaviour
+public class GlobalSpawner : MonoBehaviour
 {
     [Header("Spawn")]
     [SerializeField] private GameObject aiPrefab;
@@ -27,26 +27,26 @@ public class AISpawner : MonoBehaviour
 
     private void Start()
     {
-        SpawnAll();
+        SpawnAllAIBot();
     }
 
-    public void SpawnAll()
+    public void SpawnAllAIBot()
     {
         if (aiPrefab == null)
         {
-            Debug.LogWarning("[AISpawner] Missing aiPrefab.");
+            Debug.LogWarning("[GlobalSpawner] Missing aiPrefab.");
             return;
         }
 
         if (count <= 0)
         {
-            Debug.LogWarning("[AISpawner] count <= 0");
+            Debug.LogWarning("[GlobalSpawner] count <= 0");
             return;
         }
 
         if (spawnPoints == null || spawnPoints.Count == 0)
         {
-            Debug.LogWarning("[AISpawner] Missing spawnPoints.");
+            Debug.LogWarning("[GlobalSpawner] Missing spawnPoints.");
             return;
         }
 
@@ -54,14 +54,14 @@ public class AISpawner : MonoBehaviour
 
         if (_unusedIndices.Count == 0)
         {
-            Debug.LogWarning("[AISpawner] No valid (non-null) spawnPoints.");
+            Debug.LogWarning("[GlobalSpawner] No valid (non-null) spawnPoints.");
             return;
         }
 
         int spawnCount = Mathf.Min(count, _unusedIndices.Count);
         if (count > _unusedIndices.Count)
         {
-            Debug.LogWarning($"[AISpawner] Requested {count} bots, but only {_unusedIndices.Count} spawn points available. " +
+            Debug.LogWarning($"[GlobalSpawner] Requested {count} bots, but only {_unusedIndices.Count} spawn points available. " +
                              $"Spawning {spawnCount} bots.");
         }
 

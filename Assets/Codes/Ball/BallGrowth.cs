@@ -82,4 +82,15 @@ public sealed class BallGrowth : MonoBehaviour, IBallSizeProvider
         Vector3 target = Vector3.one * diameter;
         transform.localScale = Vector3.Lerp(transform.localScale, target, 1f - Mathf.Exp(-scaleSmooth * Time.deltaTime));
     }
+
+    #region Public API
+    public void ResetGrowth()
+    {
+        _accumDistance = 0f;
+        Radius = Mathf.Clamp(startRadius, 0.0001f, maxRadius);
+        _lastPos = transform.position;
+        ApplyUniformScaleInstant(Radius);
+    }
+
+    #endregion
 }

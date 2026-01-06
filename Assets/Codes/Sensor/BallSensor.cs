@@ -15,7 +15,7 @@ public class BallSensor : MonoBehaviour, IDefeatable
     private void Awake()
     {
         if (selfBallID == null) selfBallID = GetComponent<BallID>();
-        if (selfGrowth == null) selfGrowth = GetComponentInParent<BallGrowth>();
+        if (selfGrowth == null) selfGrowth = GetComponent<BallGrowth>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -28,7 +28,7 @@ public class BallSensor : MonoBehaviour, IDefeatable
         if (otherGrowth == null || selfGrowth == null) return;
 
         // 같은 주인(멀티볼 등) 무시
-        var otherBallID = other.GetComponentInParent<BallID>();
+        var otherBallID = other.GetComponent<BallID>();
         if (otherBallID != null && selfBallID != null && otherBallID.OwnerID == selfBallID.OwnerID)
             return;
 
