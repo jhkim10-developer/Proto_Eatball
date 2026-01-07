@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 8571255109818466229}
   - component: {fileID: 812203570862410847}
   - component: {fileID: -8517328747232235180}
+  - component: {fileID: -3749945041025649893}
   m_Layer: 6
   m_Name: SnowBall
   m_TagString: Ball
@@ -150,18 +151,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 8581250227960302507}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9a17b4f190c7be46836f6afc18f7c13, type: 3}
+  m_Script: {fileID: 11500000, guid: 20e753667a136a0479500be7af652e0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   anchor: {fileID: 0}
-  maxSpeed: 11
-  accel: 70
-  decel: 80
-  arriveRadius: 0.5
+  maxSpeed: 8
+  accel: 35
+  decel: 45
+  arriveRadius: 0.8
   stopRadius: 0.05
-  nearSpeed: 5
-  baseMinDistance: 0.4
+  nearSpeed: 2
+  baseMinDistance: 0.7
   radiusToDistance: 1.1
   extraBuffer: 0.05
   growth: {fileID: 8571255109818466229}
@@ -239,7 +240,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73c428cffa283e64784b5ffbd38afb93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  loseRatio: 1.05
   tieEpsilon: 0.005
 --- !u!114 &-8517328747232235180
 MonoBehaviour:
@@ -254,3 +254,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   OwnerIDDebug: 0
+--- !u!114 &-3749945041025649893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8581250227960302507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa5d9d413c3d09143801c5229c100e0a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debrisPrefab: {fileID: 2263251352481446049, guid: d3c72bd1731277c499ebd8beab013f3e, type: 3}
+  debrisLifeTime: 10
+  respawnDelay: 1

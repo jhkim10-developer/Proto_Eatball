@@ -1,4 +1,4 @@
-using System.Threading;
+using System.Collections;
 using UnityEngine;
 
 [DisallowMultipleComponent]
@@ -10,7 +10,6 @@ public class BallSpawner : MonoBehaviour
 
     [Header("Spawn Rule")]
     [SerializeField] private bool aiSpawnOnEnable = true; // AI는 스폰 즉시 공 생성
-    [SerializeField] private bool aiSpawnOnlyOnce = true; // AI는 공을 단 한번만 생성
 
     [Header("Spawn Fix")]
     [Tooltip("NavMeshAgent가 첫 Update에서 위치를 확정하는 경우를 대비해, 다음 FixedUpdate에 한 번 더 스냅합니다.")]
@@ -20,10 +19,16 @@ public class BallSpawner : MonoBehaviour
 
     private bool _spawned;
 
+    private CharacterLifeCycle _ownerLife;
+
+    private Coroutine _respawnCo;
+
     private void Awake()
     {
         if (ballAnchor == null)
             ballAnchor = transform.Find("BallAnchor");
+
+        _ownerLife = GetComponent<CharacterLifeCycle>(); 
     }
 
     private void OnEnable()
@@ -34,10 +39,22 @@ public class BallSpawner : MonoBehaviour
             TrySpawn();
         }
     }
+    private bool CanSpawnNow()
+    {
+        // CharacterLifeCycle이 없으면 “스폰 불가능”
+        if (_ownerLife == null) return false;
+
+        // 캐릭터가 죽었거나 무적 리스폰 대기 등 “죽음 상태”면 스폰 금지
+        return !_ownerLife.IsDefeated;
+        // 필요하면: && gameObject.activeInHierarchy 같은 것도 추가 가능
+    }
 
     public void TrySpawn()
     {
-        if (aiSpawnOnlyOnce && _spawned) return;
+        if (_spawned) return;
+
+        if (!CanSpawnNow()) return;
+
         if (snowBallPrefab == null || ballAnchor == null)
         {
             Debug.LogWarning("[BallSpawner] Missing refs.");
@@ -54,11 +71,11 @@ public class BallSpawner : MonoBehaviour
         }
 
         // 스노우볼 바인딩 -> 각각의 캐릭터에 필요 (플레이어든 AI든)
-        CharacterBallRef ballRef = GetComponent<CharacterBallRef>();
-        ballRef.Bind(growth);
+        var life = ball.GetComponent<BallLifeCycle>();
+        GetComponent<CharacterBallRef>()?.Bind(life);
 
         // 2) Follow bind (owner/anchor)
-        var follow = ball.GetComponent<SnowBallFollowAnchorMotor>();
+        var follow = ball.GetComponent<BallFollowAnchorMotor>();
         if (follow != null)
             follow.Bind(transform, ballAnchor);
 
@@ -94,7 +111,7 @@ public class BallSpawner : MonoBehaviour
         _spawned = true;
     }
 
-    private System.Collections.IEnumerator SnapNextFixed(GameObject ball, Transform anchor)
+    private IEnumerator SnapNextFixed(GameObject ball, Transform anchor)
     {
         // 다음 FixedUpdate까지 대기
         yield return new WaitForFixedUpdate();
@@ -112,5 +129,52 @@ public class BallSpawner : MonoBehaviour
         {
             ball.transform.SetPositionAndRotation(anchor.position, anchor.rotation);
         }
+    }
+
+    public void NotifyBallDestroyed(float delay, GameObject instigator)
+    {
+        _spawned = false; // 다시 스폰 가능하게
+
+        if (!CanSpawnNow()) return;
+
+        // AI 도망 트리거
+        if (!isPlayer)
+        {
+            var threat = instigator != null ? instigator.transform : null;
+            if (threat != null && TryGetComponent<AIBrainNavmeshWander>(out var brain))
+            {
+                brain.FleeFrom(threat, delay); // 일단 "공 다시 나오기 전까지" 도망
+            }
+        }
+
+        if (_respawnCo != null) StopCoroutine(_respawnCo);
+        _respawnCo = StartCoroutine(CoRespawn(delay));
+    }
+
+    private IEnumerator CoRespawn(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+
+        if (!CanSpawnNow()) yield break;
+
+        TrySpawn();
+    }
+
+    // 캐릭터가 죽을 때 호출해서 예약 코루틴까지 끊기
+    public void NotifyOwnerDefeated()
+    {
+        _spawned = false;
+        if (_respawnCo != null)
+        {
+            StopCoroutine(_respawnCo);
+            _respawnCo = null;
+        }
+    }
+
+    // 캐릭터 리스폰 직후 호출하면 바로 공을 굴리게 할 수도 있음
+    public void NotifyOwnerRespawned(bool spawnImmediately)
+    {
+        _spawned = false;
+        if (spawnImmediately) TrySpawn();
     }
 }

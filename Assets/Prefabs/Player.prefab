@@ -17,9 +17,9 @@ GameObject:
   - component: {fileID: 6692442887594417202}
   - component: {fileID: 1863610070958826330}
   - component: {fileID: 7575128159677972557}
-  - component: {fileID: 231813441396320901}
   - component: {fileID: 5237830917367885314}
   - component: {fileID: 5049915495445196087}
+  - component: {fileID: 3652818065831244272}
   m_Layer: 7
   m_Name: Player
   m_TagString: Player
@@ -208,21 +208,8 @@ MonoBehaviour:
   ballAnchor: {fileID: 7513112222116224035}
   snowBallPrefab: {fileID: 8581250227960302507, guid: d976813e7831f8a4188c6a5f80584b5a, type: 3}
   aiSpawnOnEnable: 1
-  aiSpawnOnlyOnce: 1
   snapOnNextFixedUpdate: 1
   isPlayer: 1
---- !u!114 &231813441396320901
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 139143037088332869}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ade85662cbe14f42ae60b604caa111b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &5237830917367885314
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -249,6 +236,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ballGrowth: {fileID: 0}
+--- !u!114 &3652818065831244272
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 139143037088332869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81f59b98593908245bf889690f40d857, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  respawnDelay: 1
+  invulnDuration: 1
+  debrisPrefab: {fileID: 1120851499309117499, guid: 9dcb791e4a8557b4db9feee18238a78a, type: 3}
+  debrisLifeTime: 10
+  collidersToDisable: []
+  behavioursToDisable: []
 --- !u!1 &667586575594157410
 GameObject:
   m_ObjectHideFlags: 0

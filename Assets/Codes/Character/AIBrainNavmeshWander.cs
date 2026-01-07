@@ -1,3 +1,4 @@
+using System.Threading;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -8,9 +9,13 @@ public class AIBrainNavmeshWander : MonoBehaviour
     [SerializeField] private float roamRadius = 12f;
     [SerializeField] private float repathInterval = 1.5f;
     [SerializeField] private float arriveDistance = 1.0f;
-
     private NavMeshAgent _agent;
     private float _nextRepathTime;
+
+    [Header("Flee")]
+    [SerializeField] private float fleeDistance = 8f;
+    private Transform _threat;
+    private float _fleeUntil;
 
     private void Awake()
     {
@@ -25,6 +30,20 @@ public class AIBrainNavmeshWander : MonoBehaviour
 
     private void Update()
     {
+        //µµ∏¡
+        if (_threat != null && Time.time < _fleeUntil)
+        {
+            if (Time.time >= _nextRepathTime)
+            {
+                _nextRepathTime = Time.time + repathInterval;
+                PickFleeDestination();
+            }
+            return;
+        }
+
+        _threat = null;
+
+        //πÊ»≤
         if (Time.time < _nextRepathTime) return;
         _nextRepathTime = Time.time + repathInterval;
 
@@ -52,5 +71,28 @@ public class AIBrainNavmeshWander : MonoBehaviour
     {
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, roamRadius);
+    }
+
+    public void FleeFrom(Transform threat, float duration)
+    {
+        _threat = threat;
+        _fleeUntil = Time.time + duration;
+        PickFleeDestination();
+    }
+
+    private void PickFleeDestination()
+    {
+        if (_threat == null) return;
+
+        Vector3 away = (transform.position - _threat.position);
+        away.y = 0f;
+
+        if (away.sqrMagnitude < 0.01f)
+            away = Random.insideUnitSphere;
+
+        Vector3 target = transform.position + away.normalized * fleeDistance;
+
+        if (NavMesh.SamplePosition(target, out var hit, fleeDistance, NavMesh.AllAreas))
+            _agent.SetDestination(hit.position);
     }
 }

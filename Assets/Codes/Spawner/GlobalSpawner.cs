@@ -1,9 +1,12 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
 public class GlobalSpawner : MonoBehaviour
 {
+    public static GlobalSpawner Instance { get; private set; }
+
     [Header("Spawn")]
     [SerializeField] private GameObject aiPrefab;
     [SerializeField] private int count = 7;
@@ -25,9 +28,25 @@ public class GlobalSpawner : MonoBehaviour
 
     private readonly List<int> _unusedIndices = new();
 
+    private readonly List<int> _deck = new();
+    private int _deckCursor = 0;
+
+    private void Awake()
+    {
+        if (Instance == null)
+        {
+            Instance = this;
+        }
+        else if (Instance != this)
+        {
+            Destroy(gameObject);
+        }
+    }
+
     private void Start()
     {
-        SpawnAllAIBot();
+        BuildDeck();
+        SpawnAllAIBot();        
     }
 
     public void SpawnAllAIBot()
@@ -84,23 +103,29 @@ public class GlobalSpawner : MonoBehaviour
 
     private Vector3 GetSpawnPosition()
     {
-        // 1) 중복 없이 SpawnPoint 하나 선택
-        int pick = Random.Range(0, _unusedIndices.Count);
-        int idx = _unusedIndices[pick];
-        _unusedIndices.RemoveAt(pick);
+        if (spawnPoints == null || spawnPoints.Count == 0)
+            return transform.position;
 
-        Vector3 basePos = spawnPoints[idx].position;
+        // 혹시 덱에 null이 섞여있을 수 있으니 몇 번 재시도
+        for (int attempt = 0; attempt < 10; attempt++)
+        {
+            int idx = NextSpawnIndex();
+            var sp = spawnPoints[idx];
+            if (sp == null) continue;
 
-        // 2) 패턴 방지용 jitter
-        Vector2 jitter = Random.insideUnitCircle * spawnJitter;
-        Vector3 candidate = basePos + new Vector3(jitter.x, 0f, jitter.y);
+            Vector3 basePos = sp.position;
 
-        // 3) NavMesh 위로 보정
-        if (NavMesh.SamplePosition(candidate, out var hit, sampleRadius, NavMesh.AllAreas))
-            return hit.position;
+            Vector2 jitter = Random.insideUnitCircle * spawnJitter;
+            Vector3 candidate = basePos + new Vector3(jitter.x, 0f, jitter.y);
 
-        // 실패 시 포인트 그대로 사용
-        return basePos;
+            if (NavMesh.SamplePosition(candidate, out var hit, sampleRadius, NavMesh.AllAreas))
+                return hit.position;
+
+            return basePos;
+        }
+
+        // 최후 fallback
+        return transform.position;
     }
 
     private void SpawnOne(Vector3 position, int index)
@@ -134,6 +159,76 @@ public class GlobalSpawner : MonoBehaviour
         }
 
         bot.name = $"AI_{index:00}";
+    }
+
+    public void RequestRespawn(CharacterLifeCycle target, float respawnDelay, float invulnDuration)
+    {
+        if (target == null) return;
+        StartCoroutine(CoRespawnCharacter(target, respawnDelay, invulnDuration));
+    }
+
+    private IEnumerator CoRespawnCharacter(CharacterLifeCycle target, float delay, float invulnDuration)
+    {
+        yield return new WaitForSeconds(delay);
+
+        if (target == null) yield break; // 파괴됐으면 종료
+
+        // 1) 스폰 위치 다시 뽑기
+        Vector3 pos = GetSpawnPosition();
+
+        // 2) 위치/에이전트 리셋(비활성 상태에서도 Transform 변경은 가능)
+        target.transform.position = pos;
+        target.transform.rotation = Quaternion.identity;
+
+        // 3) 활성화
+        target.gameObject.SetActive(true);
+
+        // 4) 상태 리셋 + 무적 부여 (API로 분리 추천)
+        target.ResetForRespawn(invulnDuration);
+
+        // 5) 공 스폰 (원하면 즉시)
+        target.GetComponent<BallSpawner>()?.NotifyOwnerRespawned(spawnImmediately: true);
+    }
+
+    private void BuildDeck()
+    {
+        _deck.Clear();
+        for (int i = 0; i < spawnPoints.Count; i++)
+        {
+            if (spawnPoints[i] != null)
+                _deck.Add(i);
+        }
+
+        Shuffle(_deck);
+        _deckCursor = 0;
+    }
+
+    private int NextSpawnIndex()
+    {        
+        if (_deck.Count == 0)
+            BuildDeck();
+
+        if (_deckCursor >= _deck.Count)
+        {
+            Shuffle(_deck);
+            _deckCursor = 0;
+        }
+
+        return _deck[_deckCursor++];
+    }
+
+    private static void Shuffle(List<int> list)
+    {
+        for (int i = list.Count - 1; i > 0; i--)
+        {
+            int j = Random.Range(0, i + 1);
+            (list[i], list[j]) = (list[j], list[i]);
+        }
+    }
+    private void OnDestroy()
+    {
+        if (Instance == this)
+            Instance = null;
     }
 
 #if UNITY_EDITOR

@@ -1,80 +1,68 @@
 using UnityEngine;
-using UnityEngine.Rendering.VirtualTexturing;
 
-public class BallSensor : MonoBehaviour, IDefeatable
+public class BallSensor : MonoBehaviour
 {
-    private BallID selfBallID;
-    private BallGrowth selfGrowth;
+    private BallID _selfBallID;
+    private BallGrowth _selfGrowth;
+    private IDefeatable _selfDefeatable;
 
     [Header("Rule")]
-    [SerializeField] private float loseRatio = 1.05f; // 상대가 5% 이상 크면 내가 진다
     [SerializeField] private float tieEpsilon = 0.005f; // 거의 같으면 무시
-
-    public bool IsDefeated { get; private set; }
 
     private void Awake()
     {
-        if (selfBallID == null) selfBallID = GetComponent<BallID>();
-        if (selfGrowth == null) selfGrowth = GetComponent<BallGrowth>();
+        _selfBallID = GetComponent<BallID>();
+        _selfGrowth = GetComponent<BallGrowth>();
+        _selfDefeatable = GetComponent<IDefeatable>(); // BallLifeCycle
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        //자기 자신만 조작하도록 세팅하면 중복 해결됨. OOP 준수
-        if (IsDefeated) return;
+        // ==== 자기 자신만 조작하도록 세팅하면 중복 해결됨. OOP 준수 ====
+        // 이미 죽은 공이면 무시
+        if (_selfDefeatable != null && _selfDefeatable.IsDefeated) return;
 
-        // 상대 크기 제공자 찾기
-        var otherGrowth = other.GetComponent<BallGrowth>();
-        if (otherGrowth == null || selfGrowth == null) return;
-
-        // 같은 주인(멀티볼 등) 무시
-        var otherBallID = other.GetComponent<BallID>();
-        if (otherBallID != null && selfBallID != null && otherBallID.OwnerID == selfBallID.OwnerID)
-            return;
-
-        float myR = selfGrowth.Radius;
-        float otherR = otherGrowth.Radius;
-
-        // 동률(거의 같음) 무시
-        if (Mathf.Abs(myR - otherR) <= tieEpsilon)
-            return;
-
-        // 내가 작으면 내가 진다(상대가 충분히 커야)
-        if (otherR >= myR * loseRatio)
+        // 1) Ball vs Character (or Player)
+        if (other.CompareTag("Character") || other.CompareTag("Player"))
         {
-            Defeat(other.gameObject);
+            var charID = other.GetComponent<CharacterID>();
+            if (_selfBallID != null && charID != null && _selfBallID.OwnerID == charID.masterID)
+                return; // 내 주인이면 무시
+
+            // 캐릭터 무적/사망 상태면 처리 스킵(권장)
+            var characterLife = other.GetComponent<CharacterLifeCycle>();
+            if (characterLife != null && (characterLife.IsDefeated || characterLife.IsInvulnerable))
+                return;
+
+            // 1) 캐릭터와 딸린 공 파괴
+            other.GetComponent<IDefeatable>()?.Defeat(gameObject);
+
+            return;
         }
 
-        // ==============================================================
-        //// 1. Ball VS Character
-        //// 캐릭터 들어오면
-        //if (other.CompareTag("Character") || other.CompareTag("Player"))
-        //{
-        //    var charID = other.GetComponent<CharacterID>();
-        //    if (charID != null && selfBallID != null && selfBallID.OwnerID == charID.masterID)
-        //        return; //내 주인거라면 무시
+        // 2) Ball vs Ball
+        if (!other.CompareTag("Ball")) return;
 
-        //    Debug.Log("[BallSensor] sensor trigger enter");
-        //}
+        // 같은 주인 무시
+        var otherBallID = other.GetComponent<BallID>();
+        if (otherBallID != null && _selfBallID != null && otherBallID.OwnerID == _selfBallID.OwnerID)
+            return;
 
-        //// 2. Ball VS Ball
-        //if (other.CompareTag("Ball"))
-        //{
-        //    var otherBall = other.GetComponent<BallID>();
-        //    if (otherBall != null && selfBallID != null && otherBall.OwnerID == selfBallID.OwnerID)
-        //        return; // 같은 주인(혹시 멀티볼) 무시
-        //    Debug.Log("[BallSensor] sensor trigger enter");
-        //}
-    }
+        var otherGrowth = other.GetComponent<BallGrowth>();
+        if (_selfGrowth == null || otherGrowth == null) return;
 
-    public void Defeat(GameObject instigator)
-    {
-        if (IsDefeated) return;
-        IsDefeated = true;
+        float myR = _selfGrowth.Radius;
+        float otherR = otherGrowth.Radius;
 
-        // 프로토타입: 꺼버리기
-        gameObject.SetActive(false);
+        if (Mathf.Abs(myR - otherR) <= tieEpsilon) return;
 
-        Debug.Log($"[BallSensor] Defeated by {instigator.name}");
+        if (myR > otherR)
+        {
+            other.GetComponent<IDefeatable>()?.Defeat(gameObject);
+        }
+        else
+        {
+            _selfDefeatable?.Defeat(other.gameObject);
+        }
     }
 }

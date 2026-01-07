@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody))]
-public class SnowBallFollowAnchorMotor : MonoBehaviour
+public class BallFollowAnchorMotor : MonoBehaviour
 {
     [Header("Refs")]
     [SerializeField] private Transform target;   // 추가: 플레이어 중심
@@ -56,7 +56,7 @@ public class SnowBallFollowAnchorMotor : MonoBehaviour
     {
         if (anchor == null || this.target == null)
         {
-            Debug.LogError("[SnowBallFollowAnchorMotor] anchor or target is null");
+            Debug.LogError("[BallFollowAnchorMotor] anchor or target is null");
             return;
         }
 
